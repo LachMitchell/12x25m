@@ -112,12 +112,10 @@ shinyServer(
     
     output$CS<-reactive({
       
-      round((sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-             25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[11]
-      +sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-              25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[12])/2,2)
-            
-      
+     round(
+       mean(sort(c(25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[3:4])
+       ,2)
+     
       
     })
     
@@ -145,10 +143,7 @@ shinyServer(
       b<-coef(nls(vel~(a*exp(b*c.time)+c),start=list(a=input$A,b=input$B,c=input$C)  )  )[2]
       c<-coef(nls(vel~(a*exp(b*c.time)+c),start=list(a=input$A,b=input$B,c=input$C)  )  )[3]
       
-      CS<-(sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-              25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[11]
-        +sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-                25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[12])/2
+      CS<-mean(sort(c(25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[3:4])
       
       
       model<-function(x){a*exp(b*x)+c}
@@ -182,11 +177,7 @@ shinyServer(
       b<-coef(nls(vel~(a*exp(b*c.time)+c),start=list(a=input$A,b=input$B,c=input$C)  )  )[2]
       c<-coef(nls(vel~(a*exp(b*c.time)+c),start=list(a=input$A,b=input$B,c=input$C)  )  )[3]
       
-      CS<-(sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-                  25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[11]
-           +sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-                   25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[12])/2
-      
+      CS<-mean(sort(c(25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[3:4])
       
       model<-function(x){a*exp(b*x)+c}
       
@@ -206,10 +197,7 @@ shinyServer(
         vel<-c(25/input$E1)
         
       
-        CS<-(sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-                    25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[11]
-             +sort(c(25/input$E1,25/input$E2,25/input$E3,25/input$E4,25/input$E5,25/input$E6,
-                     25/input$E7,25/input$E8,25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[12])/2
+        CS<-mean(sort(c(25/input$E9,25/input$E10,25/input$E11,25/input$E12),decreasing = TRUE)[3:4])
         
         round(((vel-CS)/vel)*100,1)
         
